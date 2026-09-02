@@ -1,0 +1,199 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   CSS Custom Properties Theme System
+   ============================================ */
+:root {
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #0f172a;
+  --bg-card: rgba(255, 255, 255, 0.05);
+  --bg-card-dark: rgba(0, 0, 0, 0.30);
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --border-color: rgba(255, 255, 255, 0.08);
+  --glass-bg: rgba(255, 255, 255, 0.06);
+  --glass-dark-bg: rgba(0, 0, 0, 0.35);
+  --input-bg: rgba(0, 0, 0, 0.30);
+  --progress-track: rgba(0, 0, 0, 0.60);
+  --badge-bg: rgba(0, 0, 0, 0.45);
+}
+
+body.light-mode {
+  --bg-primary: #f1f5f9;
+  --bg-secondary: #ffffff;
+  --bg-card: rgba(255, 255, 255, 0.85);
+  --bg-card-dark: rgba(255, 255, 255, 0.95);
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+  --border-color: rgba(0, 0, 0, 0.10);
+  --glass-bg: rgba(255, 255, 255, 0.80);
+  --glass-dark-bg: rgba(255, 255, 255, 0.90);
+  --input-bg: rgba(0, 0, 0, 0.05);
+  --progress-track: rgba(0, 0, 0, 0.10);
+  --badge-bg: rgba(255, 255, 255, 0.85);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    @apply font-sans antialiased overflow-x-hidden;
+    transition: background-color 0.4s ease, color 0.4s ease;
+  }
+
+  /* All sections inherit the theme background */
+  section {
+    background-color: var(--bg-primary) !important;
+    transition: background-color 0.4s ease;
+  }
+
+  ::selection {
+    @apply bg-primaryAccent/40 text-white;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primaryAccent/40 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primaryAccent/60;
+  }
+}
+
+@layer utilities {
+  .glass {
+    background: var(--glass-bg) !important;
+    @apply backdrop-blur-xl shadow-xl;
+    border: 1px solid var(--border-color) !important;
+  }
+
+  .glass-dark {
+    background: var(--glass-dark-bg) !important;
+    @apply backdrop-blur-2xl shadow-2xl;
+    border: 1px solid var(--border-color) !important;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primaryAccent via-secondaryAccent to-highlightAccent;
+    background-size: 200% auto;
+    animation: gradient-x 3s ease infinite;
+  }
+
+  .bg-gradient-premium {
+    background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, var(--bg-primary) 100%) !important;
+  }
+
+  .glow-blue {
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.15), 0 0 60px rgba(59, 130, 246, 0.05);
+  }
+
+  .glow-purple {
+    box-shadow: 0 0 30px rgba(139, 92, 246, 0.15), 0 0 60px rgba(139, 92, 246, 0.05);
+  }
+
+  .glow-cyan {
+    box-shadow: 0 0 30px rgba(6, 182, 212, 0.15), 0 0 60px rgba(6, 182, 212, 0.05);
+  }
+}
+
+/* ============================================
+   Global Light-Mode Overrides (applied via body.light-mode)
+   ============================================ */
+body.light-mode h1,
+body.light-mode h2,
+body.light-mode h3,
+body.light-mode h4,
+body.light-mode h5,
+body.light-mode h6,
+body.light-mode p,
+body.light-mode span:not([class*="text-gradient"]):not([class*="text-primaryAccent"]):not([class*="text-secondaryAccent"]):not([class*="text-highlightAccent"]):not([class*="text-cyan"]):not([class*="text-green"]):not([class*="text-yellow"]):not([class*="text-orange"]):not([class*="text-red"]):not([class*="text-purple"]),
+body.light-mode label,
+body.light-mode a:not([class*="text-"]):not([class*="hover:text-"]) {
+  color: var(--text-primary);
+}
+
+/* Light mode: heading whites become dark */
+body.light-mode [class*="text-white"] {
+  color: var(--text-primary) !important;
+}
+
+body.light-mode [class*="text-gray-100"],
+body.light-mode [class*="text-gray-200"],
+body.light-mode [class*="text-gray-300"] {
+  color: var(--text-secondary) !important;
+}
+
+body.light-mode [class*="text-gray-400"],
+body.light-mode [class*="text-gray-500"] {
+  color: var(--text-muted) !important;
+}
+
+/* Light mode: dark backgrounds become light */
+body.light-mode [class*="bg-primaryBg"],
+body.light-mode [class*="bg-secondaryBg"] {
+  background-color: var(--bg-secondary) !important;
+}
+
+/* Keep skill icon backgrounds a bit visible in light mode */
+body.light-mode [class*="bg-black"] {
+  background-color: rgba(0, 0, 0, 0.06) !important;
+}
+
+/* Card borders */
+body.light-mode [class*="border-white"] {
+  border-color: var(--border-color) !important;
+}
+
+/* Form inputs */
+body.light-mode input,
+body.light-mode textarea {
+  background: var(--input-bg) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-color) !important;
+}
+
+body.light-mode input::placeholder,
+body.light-mode textarea::placeholder {
+  color: var(--text-muted) !important;
+}
+
+/* progress bar track */
+body.light-mode [class*="bg-black/60"] {
+  background: var(--progress-track) !important;
+}
+
+/* Floating badges */
+body.light-mode .glass-dark {
+  background: white !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+@keyframes gradient-x {
+
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
