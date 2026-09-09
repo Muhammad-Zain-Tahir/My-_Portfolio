@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { projectsData } from '../data/projects';
-import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 
 const categories = ['All', 'React', 'MERN', 'JavaScript', 'Backend'];
 

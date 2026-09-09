@@ -78,7 +78,7 @@ const About = () => {
                             {/* Profile Image */}
                             <div className="w-full h-full rounded-[22px] relative z-10 overflow-hidden bg-black">
                                 <div className="absolute inset-0 bg-purple-500/10 mix-blend-overlay z-10 pointer-events-none group-hover:bg-transparent transition-all duration-500"></div>
-                                <img src="/profile.jpg" alt="Zain Tahir" className="object-cover object-top w-full h-full group-hover:scale-110 filter contrast-110 saturate-110 transition-transform duration-700" />
+                                <img src="/profile.png" alt="Zain Tahir" className="object-cover object-top w-full h-full group-hover:scale-110 filter contrast-110 saturate-110 transition-transform duration-700" />
                             </div>
 
                             {/* Decorative Elements */}

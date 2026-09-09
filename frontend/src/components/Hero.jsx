@@ -28,7 +28,7 @@ const Hero = () => {
             <div className="container mx-auto px-6 md:px-12 z-10 flex flex-col md:flex-row items-center justify-between gap-12">
 
                 {/* Left Content */}
-                <div className="flex-1 text-left flex flex-col items-start gap-4">
+                <div className="order-2 md:order-1 flex-1 text-left flex flex-col items-start gap-4">
                     <motion.div
                         initial={{ opacity: 0, x: -50 }}
                         animate={{ opacity: 1, x: 0 }}
@@ -109,7 +109,7 @@ const Hero = () => {
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.9, delay: 0.2 }}
-                    className="flex-1 flex justify-center relative mt-10 md:mt-0"
+                    className="order-1 md:order-2 flex-1 flex justify-center relative mb-2 md:mb-0 md:mt-0"
                 >
                     <div className="relative w-[320px] h-[320px] md:w-[440px] md:h-[440px] group flex items-center justify-center">
 
@@ -147,7 +147,7 @@ const Hero = () => {
 
                             {/* The actual photo */}
                             <img
-                                src="/profile.jpg"
+                                src="/profile.png"
                                 alt="Zain Tahir – MERN Stack Developer"
                                 className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.04]"
                                 style={{ filter: 'contrast(1.08) saturate(1.15) brightness(1.02)' }}

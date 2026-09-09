@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { projectsData } from '../data/projects';
-import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 
 const categories = ['All', 'React', 'MERN', 'JavaScript', 'Backend'];
 
@@ -58,15 +57,7 @@ const Projects = () => {
                             >
                                 {/* Project Image Image Holder */}
                                 <div className="w-full h-72 overflow-hidden relative">
-                                    <div className="absolute inset-0 bg-black/40 z-20 group-hover:bg-black/70 transition-colors duration-500 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 gap-4">
-                                        <a href={project.liveUrl || "#"} target="_blank" rel="noreferrer" className="px-6 py-2 bg-primaryAccent text-white font-bold rounded-full transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 flex items-center gap-2 hover:bg-blue-600">
-                                            <FaExternalLinkAlt /> Live Demo
-                                        </a>
-                                        <a href={project.githubUrl || "#"} target="_blank" rel="noreferrer" className="px-6 py-2 bg-gray-800 text-white font-bold rounded-full transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 delay-75 flex items-center gap-2 hover:bg-gray-700 hover:text-white border border-gray-600">
-                                            <FaGithub /> GitHub
-                                        </a>
-                                    </div>
-                                    <div className="absolute inset-0 bg-black/20 z-10 group-hover:opacity-0 transition-opacity duration-500"></div>
+                                    <div className="absolute inset-0 bg-black/40 z-10 group-hover:bg-black/60 transition-colors duration-500"></div>
                                     <img
                                         src={project.image}
                                         alt={project.title}
