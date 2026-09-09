@@ -56,11 +56,12 @@ const Navbar = ({ theme, toggleTheme }) => {
                             smooth={true}
                             duration={500}
                             spy={true}
-                            activeClass="!text-primaryAccent border-b-2 border-primaryAccent"
+                            activeClass="!text-primaryAccent"
                             style={{ color: 'var(--text-secondary)' }}
-                            className="cursor-pointer text-sm font-medium transition-colors hover:text-primaryAccent"
+                            className="relative cursor-pointer text-sm font-medium transition-colors hover:text-primaryAccent group"
                         >
                             {link.name}
+                            <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-primaryAccent transition-all duration-300 group-hover:w-full group-[.active]:w-full"></span>
                         </Link>
                     ))}
 
